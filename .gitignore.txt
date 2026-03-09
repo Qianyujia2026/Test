@@ -1,0 +1,47 @@
+# 编译输出文件
+*.axf
+*.hex
+*.bin
+*.elf
+*.map
+*.lst
+*.sym
+*.srec
+*.a
+*.la
+
+# 编译中间文件
+*.o
+*.d
+*.crf
+*.lnp
+*.dcr
+*.scvd
+*.dep
+*.iex
+*.s
+*.su
+*.mod
+*.cmd
+*.tmp_user
+*.user
+
+# 构建目录
+build/
+cmake-build-*/
+MDK-ARM/Listings/
+MDK-ARM/Objects/
+MDK-ARM/*.uvguix
+MDK-ARM/*.uvoptx
+MDK-ARM/*.uvprojx.user
+
+# IDE 配置文件
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# 日志文件
+*.log

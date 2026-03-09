@@ -1,0 +1,123 @@
+cmake_minimum_required(VERSION 4.1)
+project(chassis_control C)
+
+set(CMAKE_C_STANDARD 11)
+
+include_directories(Core/Inc)
+include_directories(Drivers/CMSIS)
+include_directories(Drivers/CMSIS/Device)
+include_directories(Drivers/CMSIS/Device/ST)
+include_directories(Drivers/CMSIS/Device/ST/STM32F1xx)
+include_directories(Drivers/CMSIS/Device/ST/STM32F1xx/Include)
+include_directories(Drivers/CMSIS/Include)
+include_directories(Drivers/STM32F1xx_HAL_Driver/Inc)
+include_directories(Drivers/STM32F1xx_HAL_Driver/Inc/Legacy)
+include_directories(MDK-ARM)
+include_directories(MDK-ARM/RTE)
+include_directories(MDK-ARM/RTE/_chassis_control)
+
+add_executable(chassis_control
+        Core/Inc/can.h
+        Core/Inc/dma.h
+        Core/Inc/gpio.h
+        Core/Inc/main.h
+        Core/Inc/stm32f1xx_hal_conf.h
+        Core/Inc/stm32f1xx_it.h
+        Core/Inc/tim.h
+        Core/Inc/usart.h
+        Core/Src/can.c
+        Core/Src/dma.c
+        Core/Src/gpio.c
+        Core/Src/main.c
+        Core/Src/stm32f1xx_hal_msp.c
+        Core/Src/stm32f1xx_it.c
+        Core/Src/system_stm32f1xx.c
+        Core/Src/tim.c
+        Core/Src/usart.c
+        Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h
+        Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h
+        Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h
+        Drivers/CMSIS/Include/cmsis_armcc.h
+        Drivers/CMSIS/Include/cmsis_armclang.h
+        Drivers/CMSIS/Include/cmsis_compiler.h
+        Drivers/CMSIS/Include/cmsis_gcc.h
+        Drivers/CMSIS/Include/cmsis_iccarm.h
+        Drivers/CMSIS/Include/cmsis_version.h
+        Drivers/CMSIS/Include/core_armv8mbl.h
+        Drivers/CMSIS/Include/core_armv8mml.h
+        Drivers/CMSIS/Include/core_cm0.h
+        Drivers/CMSIS/Include/core_cm0plus.h
+        Drivers/CMSIS/Include/core_cm1.h
+        Drivers/CMSIS/Include/core_cm23.h
+        Drivers/CMSIS/Include/core_cm3.h
+        Drivers/CMSIS/Include/core_cm33.h
+        Drivers/CMSIS/Include/core_cm4.h
+        Drivers/CMSIS/Include/core_cm7.h
+        Drivers/CMSIS/Include/core_sc000.h
+        Drivers/CMSIS/Include/core_sc300.h
+        Drivers/CMSIS/Include/mpu_armv7.h
+        Drivers/CMSIS/Include/mpu_armv8.h
+        Drivers/CMSIS/Include/tz_context.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_can.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma_ex.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_exti.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio_ex.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_cortex.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_dma.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_gpio.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_pwr.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_tim.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_utils.h
+        Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c
+        Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_can.c
+        Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c
+        Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c
+        Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c
+        Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c
+        Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c
+        Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c
+        Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c
+        Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c
+        Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c
+        Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c
+        Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c
+        Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c
+        Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c
+        MDK-ARM/RTE/_chassis_control/RTE_Components.h
+        MDK-ARM/1.h
+        MDK-ARM/CAN_control.c
+        MDK-ARM/CAN_control.h
+        MDK-ARM/CAN_task.c
+        MDK-ARM/CAN_task.h
+        MDK-ARM/chassis_task.c
+        MDK-ARM/chassis_task.h
+        MDK-ARM/DBUS.c
+        MDK-ARM/DBUS.h
+        MDK-ARM/motor.c
+        MDK-ARM/motor.h
+        MDK-ARM/TIM_control.c
+        MDK-ARM/TIM_task.c
+        MDK-ARM/TIM_task.h
+        MDK-ARM/USART_task.c
+        MDK-ARM/USART_task.h
+        MDK-ARM/vofa.c
+        MDK-ARM/vofa.h)
